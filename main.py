@@ -61,9 +61,12 @@ def get_pinboards(user): #This won't get all of their pinboards necessarily. It'
 
 
 
-def item_url(specific_pin): #This will take a specific pin's URL and give you the original URL for that content. Useful for figuring out where someone is pinning clothes from, for example.
-	soup = BeautifulSoup(urllib2.urlopen(specific_pin).read())
-	return select(soup, 'meta[property="pinterestapp:source"]')[0]['content']
+def item_url(specific_pin): #Takes the URL for a specific pin and gets the original URL for whatever was pinned. Useful for seeing what someone likes to pin from.
+	try:
+		soup = BeautifulSoup(urllib2.urlopen(specific_pin).read())
+		return select(soup, 'meta[property="pinterestapp:source"]')[0]['content']
+	except:
+		return 'no url'
 
 
 
@@ -82,3 +85,20 @@ def grab_pin(specific_pin): #You can use this to get a lot of the information fr
         "comments": select(soup, 'meta[property="pinterestapp:comments"]')[0]['content'],
         "actions": select(soup, 'meta[property="pinterestapp:actions"]')[0]['content'],
     }
+
+def get_urls(user): #Takes a user, gets their pinboards, then goes through those pinboards to find items that are from a certain URL
+user_pinboards = get_pinboards(user)
+
+URL_items = [] #replace this with any other retailer, or add another one below it
+
+for i in user_pinboards:
+	i = get_pinboard_timeline(i)
+
+	user_pins = timeline(i)
+
+	for j in user_pins:
+		url = item_url(j)
+		if 'your url' in url:
+			URL_items.append(url)
+
+return URL_items
