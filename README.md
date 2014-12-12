@@ -14,9 +14,7 @@ If you think of any improvements, go ahead and make them and submit a pull reque
 
 ## Dependencies
 
-BeautifulSoup: http://www.crummy.com/software/BeautifulSoup/
-
-SoupSelect: https://code.google.com/p/soupselect/
+PyQuery: https://pythonhosted.org/pyquery/
 
 FeedParser: https://pypi.python.org/pypi/feedparser
 
@@ -31,8 +29,9 @@ FeedParser: https://pypi.python.org/pypi/feedparser
 
 ## Contributors
 
-(placeholder)
+** Vyacheslav Sukhenko
 
+- <https://github.com/eternalfame>
 
 ## Special Thanks To
 
