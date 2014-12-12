@@ -29,7 +29,7 @@ FeedParser: https://pypi.python.org/pypi/feedparser
 
 ## Contributors
 
-** Vyacheslav Sukhenko
+**Vyacheslav Sukhenko**
 
 - <https://github.com/eternalfame>
 
